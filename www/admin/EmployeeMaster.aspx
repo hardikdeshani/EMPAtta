@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Column1" runat="Server">
     <br />
-    <table border="1" width="100%">
+    <table width="100%">
         <tr>
             <th colspan="3">Form</th>
         </tr>
