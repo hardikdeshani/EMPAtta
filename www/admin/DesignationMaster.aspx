@@ -25,7 +25,7 @@
         </tr>
         <tr>
             <td colspan="3">
-                <asp:Button runat="server" ID="btSave" Text="Save" ValidationGroup="vgA" />
+                <asp:Button runat="server" ID="btSave" Text="Save" OnClick="btSave_Click" ValidationGroup="vgA" />
             </td>
         </tr>
     </table>
