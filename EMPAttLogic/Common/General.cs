@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EMPAttLogic.Common
 {
-    partial class General
+    public class General
     {
         public string GetPassword(string Mobile)
         {

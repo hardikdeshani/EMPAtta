@@ -27,5 +27,10 @@ namespace EMPAttLogic.EMP
             object[,] param = { { "EMPIDP", EMPIDP } };
             return ExecuteProcedure("GetEmployee", param);
         }
+
+        public MEMBERS.SQLReturnMessageNValue EMP_AUTH(string UserName, string Password)
+        {
+            return ExecuteProceduerWithMessage("EMP_AUTH", new object[,] { { "UserName", UserName }, { "Password", Password } });
+        }
     }
 }

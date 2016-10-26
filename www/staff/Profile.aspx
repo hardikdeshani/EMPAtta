@@ -48,13 +48,17 @@
                 <td></td>
             </tr>
             <tr>
-                <td colspan="3">
-                    <asp:CheckBox runat="server" ID="cbIsActive" Text="Active" />
+                <td>Password</td>
+                <td>
+                    <asp:TextBox runat="server" ID="tbPassword" CssClass="input-text"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator runat="server" ID="r4" ControlToValidate="tbPassword" Display="Dynamic" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgA"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td colspan="3">
-                    <asp:Button runat="server" ID="btSave" CssClass="input-submit" Text="Save" ValidationGroup="vgA" />
+                    <asp:Button runat="server" ID="btSave" CssClass="input-submit" Text="Save" OnClick="btSave_Click" ValidationGroup="vgA" />
                 </td>
             </tr>
         </table>

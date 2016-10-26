@@ -9,7 +9,8 @@ public partial class staff_Dashboard : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.Page.Title = "Clock In / Clock Out";
+        MasterPage mPage = this.Master;
+        ((Label)mPage.FindControl("lTitle")).Text = this.Page.Title = "Clock In / Clock Out";
     }
 
     protected void lLogout_Click(object sender, EventArgs e)
