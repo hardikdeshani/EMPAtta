@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EMPAttLogic.EMP
 {
-    partial class Registration : SqlHelper
+    public class Registration : SqlHelper
     {
         public Int64 EMPIDP { get; set; }
         public string Name { get; set; }

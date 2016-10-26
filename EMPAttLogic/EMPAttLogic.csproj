@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\General.cs" />
+    <Compile Include="EMP\Designation.cs" />
     <Compile Include="EMP\Registration.cs" />
     <Compile Include="Helper\MEMBERS.cs" />
     <Compile Include="Helper\SqlHelper.cs" />

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using EMPAttLogic;
 
 public partial class admin_DesignationMaster : System.Web.UI.Page
 {
@@ -13,4 +12,9 @@ public partial class admin_DesignationMaster : System.Web.UI.Page
         MasterPage mPage = this.Master;
         ((Label)mPage.FindControl("lTitle")).Text = this.Page.Title = "Designation Master";
     }
+    protected void btSave_Click(object sender, EventArgs e)
+    {
+
+    }
 }
+

@@ -13,3 +13,4 @@ public partial class admin_EmployeeMaster : System.Web.UI.Page
         ((Label)mPage.FindControl("lTitle")).Text = this.Page.Title = "Employee Master";
     }
 }
+
