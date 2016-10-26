@@ -1,0 +1,5 @@
+F:\WebSmithAttandenceSystem\EMPAttandence\EMPAtta\EMPAttLogic\bin\Debug\EMPAttLogic.dll
+F:\WebSmithAttandenceSystem\EMPAttandence\EMPAtta\EMPAttLogic\bin\Debug\EMPAttLogic.pdb
+F:\WebSmithAttandenceSystem\EMPAttandence\EMPAtta\EMPAttLogic\obj\Debug\EMPAttLogic.csprojResolveAssemblyReference.cache
+F:\WebSmithAttandenceSystem\EMPAttandence\EMPAtta\EMPAttLogic\obj\Debug\EMPAttLogic.dll
+F:\WebSmithAttandenceSystem\EMPAttandence\EMPAtta\EMPAttLogic\obj\Debug\EMPAttLogic.pdb
