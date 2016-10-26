@@ -3,3 +3,8 @@ F:\WebSmithAttandenceSystem\EMPAttandence\EMPAtta\EMPAttLogic\bin\Debug\EMPAttLo
 F:\WebSmithAttandenceSystem\EMPAttandence\EMPAtta\EMPAttLogic\obj\Debug\EMPAttLogic.csprojResolveAssemblyReference.cache
 F:\WebSmithAttandenceSystem\EMPAttandence\EMPAtta\EMPAttLogic\obj\Debug\EMPAttLogic.dll
 F:\WebSmithAttandenceSystem\EMPAttandence\EMPAtta\EMPAttLogic\obj\Debug\EMPAttLogic.pdb
+D:\EMPAttGit\EMPAtta\EMPAttLogic\bin\Debug\EMPAttLogic.dll
+D:\EMPAttGit\EMPAtta\EMPAttLogic\bin\Debug\EMPAttLogic.pdb
+D:\EMPAttGit\EMPAtta\EMPAttLogic\obj\Debug\EMPAttLogic.csprojResolveAssemblyReference.cache
+D:\EMPAttGit\EMPAtta\EMPAttLogic\obj\Debug\EMPAttLogic.dll
+D:\EMPAttGit\EMPAtta\EMPAttLogic\obj\Debug\EMPAttLogic.pdb
