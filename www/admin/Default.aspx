@@ -5,36 +5,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Admin Login</title>
-    <link href="../StyleSheet.css" rel="stylesheet" />
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <link href="../logincss/login.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="width: 350px; padding: 5px; border: 1px solid #000; margin: 250px auto">
-            <table align="center" width="100%">
-                <tr>
-                    <th colspan="2">Admin Login</th>
-                </tr>
-                <tr>
-                    <td>User Name</td>
-                    <td>
-                        <asp:TextBox runat="server" ID="tbUserName"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ID="r1" ControlToValidate="tbUserName" Display="Dynamic" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgA"></asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td>
-                        <asp:TextBox runat="server" ID="tbPassword"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ID="r2" ControlToValidate="tbPassword" Display="Dynamic" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgA"></asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <asp:Button runat="server" ID="btLogin" Text="Login" ValidationGroup="vgA" />
-                    </td>
-                </tr>
-            </table>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="login-card">
+            <h1>Admin Login</h1>
+            <br>
+            <div>
+                <asp:TextBox runat="server" ID="tbUserName" placeholder="User Name"></asp:TextBox>
+                <asp:RequiredFieldValidator runat="server" ID="r1" ControlToValidate="tbUserName" Display="Dynamic" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgA"></asp:RequiredFieldValidator>
+                <asp:TextBox runat="server" ID="tbPassword" placeholder="Password"></asp:TextBox>
+                <asp:RequiredFieldValidator runat="server" ID="r2" ControlToValidate="tbPassword" Display="Dynamic" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgA"></asp:RequiredFieldValidator>
+                <asp:Button runat="server" ID="btLogin" CssClass="login login-submit" Text="Login" ValidationGroup="vgA" />
+            </div>
         </div>
     </form>
+    <!-- <div id="error"><img src="https://dl.dropboxusercontent.com/u/23299152/Delete-icon.png" /> Your caps-lock is on.</div> -->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 </body>
 </html>

@@ -3,48 +3,47 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Column1" runat="Server">
-    <table width="100%">
+    <fieldset>
+        <legend>Legend</legend>
+        <table class="nostyle">
         <tr>
             <td align="center" colspan="3">
-                <br />
-                <br />
                 <table width="100%" border="1">
                     <tr>
                         <th>Clock In</th>
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox runat="server" ID="tbRemarksIn" placeholder="Remarks" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="tbRemarksIn" CssClass="input-text" placeholder="Remarks" TextMode="MultiLine"></asp:TextBox>
                             <asp:RequiredFieldValidator runat="server" ID="r1" ControlToValidate="tbRemarksIn" Display="Dynamic" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgA"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button runat="server" ID="btClockIn" Text="Clock In" ValidationGroup="vgA" />
+                            <asp:Button runat="server" ID="btClockIn" CssClass="input-submit" Text="Clock In" ValidationGroup="vgA" />
                         </td>
                     </tr>
                 </table>
             </td>
             <td align="center" colspan="3">
-                <br />
-                <br />
                 <table width="100%" border="1">
                     <tr>
                         <th>Clock Out</th>
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox runat="server" ID="tbRemarksOut" placeholder="Remarks" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="tbRemarksOut" CssClass="input-text" placeholder="Remarks" TextMode="MultiLine"></asp:TextBox>
                             <asp:RequiredFieldValidator runat="server" ID="r2" ControlToValidate="tbRemarksOut" Display="Dynamic" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgOut"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button runat="server" ID="btClockOut" Text="Clock Out" ValidationGroup="vgOut" />
+                            <asp:Button runat="server" ID="btClockOut" CssClass="input-submit" Text="Clock Out" ValidationGroup="vgOut" />
                         </td>
                     </tr>
                 </table>
             </td>
         </tr>
-    </table>
+        </table>
+    </fieldset>
 </asp:Content>
