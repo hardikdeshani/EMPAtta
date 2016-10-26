@@ -9,6 +9,7 @@ public partial class admin_AttadenceReport : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        MasterPage mPage = this.Master;
+        ((Label)mPage.FindControl("lTitle")).Text = this.Page.Title = "Attadence Report";
     }
 }
