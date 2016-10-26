@@ -11,4 +11,8 @@ public partial class admin_Admin : System.Web.UI.MasterPage
     {
 
     }
+    protected void lLogout_Click(object sender, EventArgs e)
+    {
+
+    }
 }

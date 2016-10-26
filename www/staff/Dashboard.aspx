@@ -4,13 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Dashboard</title>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    
-    </div>
+        <div style="width: 900px; border: 1px solid #000; margin: 0 auto; padding: 5px;">
+        </div>
     </form>
 </body>
 </html>

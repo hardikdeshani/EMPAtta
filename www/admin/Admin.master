@@ -5,16 +5,53 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder id="Column1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+        <div style="width: 900px; border: 1px solid #000; margin: 0 auto; padding: 5px;">
+            <table align="center" width="100%">
+                <tr align="center">
+                    <td>
+                        <a href="Home.aspx">Home</a>
+                    </td>
+                    <td>
+                        <a href="DesignationMaster.aspx">Designation</a>
+                    </td>
+                    <td>
+                        <a href="EmployeeMaster.aspx">Employee</a>
+                    </td>
+                    <td>
+                        <a href="AttadenceReport.aspx">Attadence Report</a>
+                    </td>
+                    <td>
+                        <a href="LeaveReport.aspx">Leave Report</a>
+                    </td>
+                    <td>
+                        <asp:LinkButton runat="server" ID="lLogout" Text="Logout" OnClick="lLogout_Click"></asp:LinkButton>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7" align="center">
+                        <br />
+                        <asp:Label runat="server" ID="lTitle"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7" align="center">
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                    <asp:ContentPlaceHolder ID="Column1" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </form>
 </body>
 </html>
