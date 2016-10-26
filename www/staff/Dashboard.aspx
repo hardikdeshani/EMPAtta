@@ -1,3 +1,16 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/staff/Staff.master" AutoEventWireup="false" CodeFile="Dashboard.aspx.vb" Inherits="staff_Dashboard" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Dashboard.aspx.cs" Inherits="staff_Dashboard" %>
 
-<%-- Add content controls here --%>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+    </div>
+    </form>
+</body>
+</html>
