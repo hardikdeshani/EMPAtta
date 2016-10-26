@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Staff.master.cs" Inherits="staff_Staff" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="../StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div style="width: 900px; border: 1px solid #000; margin: 0 auto; padding: 5px;">
+            <table align="center" width="100%">
+                <tr align="center">
+                    <td>
+                        <a href="Dashboard.aspx">Clock In / Clock Out</a>
+                    </td>
+                    <td>
+                        <a href="LeaveMaster.aspx">Leave</a>
+                    </td>
+                    <td>
+                        <a href="Profile.aspx">Profile</a>
+                    </td>
+                    <td>
+                        <asp:LinkButton runat="server" ID="lLogout" Text="Logout" OnClick="lLogout_Click"></asp:LinkButton>
+                    </td>
+                    <td>
+                        <asp:Label runat="server" ID="lUserName" Text="[User Name]"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5" align="center">
+                        <br />
+                        <asp:ContentPlaceHolder ID="Column1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
