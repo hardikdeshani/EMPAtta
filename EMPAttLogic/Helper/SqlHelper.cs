@@ -10,7 +10,7 @@ using System.Data;
 /// Summary description for SqlHelper
 /// </summary>
 ///
-
+//chngesd
 public class SqlHelper
 {
     SqlConnection con = new SqlConnection(System.Configuration.ConfigurationSettings.AppSettings["CONSTR"].ToString());
