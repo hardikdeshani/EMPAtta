@@ -39,14 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\General.cs" />
+    <Compile Include="EMP\Registration.cs" />
     <Compile Include="Helper\MEMBERS.cs" />
     <Compile Include="Helper\SqlHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\" />
-    <Folder Include="Common\" />
-    <Folder Include="EMP\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
