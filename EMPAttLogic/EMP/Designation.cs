@@ -7,5 +7,6 @@ namespace EMPAttLogic.EMP
 {
     public class Designation : SqlHelper
     {
+        public int DesignationIDP { get; set; }
     }
 }
