@@ -11,4 +11,9 @@ public partial class staff_Dashboard : System.Web.UI.Page
     {
 
     }
+
+    protected void lLogout_Click(object sender, EventArgs e)
+    {
+
+    }
 }
