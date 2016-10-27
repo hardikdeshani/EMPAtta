@@ -12,6 +12,7 @@ public partial class admin_DesignationMaster : System.Web.UI.Page
         MasterPage mPage = this.Master;
         ((Label)mPage.FindControl("lTitle")).Text = this.Page.Title = "Designation Master";
     }
+
     protected void btSave_Click(object sender, EventArgs e)
     {
 

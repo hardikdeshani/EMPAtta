@@ -18,6 +18,8 @@ public partial class admin_Default : System.Web.UI.Page
         MEMBERS.SQLReturnMessageNValue mRes = new EMPAttLogic.Admin.AdminLogin().ADMIN_AUTH(tbUserName.Text, tbPassword.Text);
         if (mRes.Outval > 0)
         {
+            Session["AdminID"] = mRes.Outval.ToString();
+            Session["AdminName"] = mRes.Outmsg.ToString();
             Response.Redirect("Home.aspx");
         }
         else

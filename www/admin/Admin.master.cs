@@ -9,7 +9,10 @@ public partial class admin_Admin : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            lName.Text = Session["AdminName"].ToString();
+        }
     }
 
     protected void lLogout_Click(object sender, EventArgs e)
