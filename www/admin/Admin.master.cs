@@ -11,12 +11,20 @@ public partial class admin_Admin : System.Web.UI.MasterPage
     {
         if (!IsPostBack)
         {
+            if (Session["AdminName"] == null)
+            {
+                Response.Redirect("/admin/Default.aspx");
+                return;
+            }
             lName.Text = Session["AdminName"].ToString();
         }
     }
 
     protected void lLogout_Click(object sender, EventArgs e)
     {
-
+        Session["AdminName"] = null;
+        Session["AdminID"] = null;
+        Response.Redirect("/admin/Default.aspx");
+        return;
     }
 }

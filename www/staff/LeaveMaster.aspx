@@ -9,8 +9,8 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
         $(function () {
-            $("#<%=tbFromDate.ClientID%>").datepicker();
-            $("#<%=tbToDate.ClientID%>").datepicker();
+            $("#<%=tbFromDate.ClientID%>").datepicker({ dateFormat: 'dd/mm/yy' });
+            $("#<%=tbToDate.ClientID%>").datepicker({ dateFormat: 'dd/mm/yy' });
         });
     </script>
 </asp:Content>
@@ -48,7 +48,9 @@
                 <td>
                     <asp:TextBox runat="server" CssClass="input-text" ID="tbFromDate"></asp:TextBox>
                 </td>
-                <td></td>
+                <td>
+                    <asp:RequiredFieldValidator runat="server" ID="r3" ControlToValidate="tbFromDate" Display="Dynamic" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgA"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr runat="server" id="trToDate" visible="false">
                 <td>To Date
@@ -60,7 +62,7 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    <asp:Button runat="server" CssClass="input-submit" ID="btSave" Text="Save" ValidationGroup="vgA" />
+                    <asp:Button runat="server" CssClass="input-submit" ID="btSave" OnClick="btSave_Click" Text="Save" ValidationGroup="vgA" />
                 </td>
             </tr>
     </fieldset>

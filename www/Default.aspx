@@ -22,7 +22,7 @@
             <div>
                 <asp:TextBox runat="server" ID="tbUserName" placeholder="User Name"></asp:TextBox>
                 <asp:RequiredFieldValidator runat="server" ID="r1" ControlToValidate="tbUserName" Display="Dynamic" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgA"></asp:RequiredFieldValidator>
-                <asp:TextBox runat="server" ID="tbPassword" placeholder="Password"></asp:TextBox>
+                <asp:TextBox runat="server" ID="tbPassword" placeholder="Password" TextMode="Password"></asp:TextBox>
                 <asp:RequiredFieldValidator runat="server" ID="r2" ControlToValidate="tbPassword" Display="Dynamic" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgA"></asp:RequiredFieldValidator>
                 <asp:Button runat="server" ID="btLogin" CssClass="login login-submit" OnClick="btLogin_Click" Text="Login" ValidationGroup="vgA" />
             </div>

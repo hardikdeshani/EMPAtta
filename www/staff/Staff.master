@@ -37,7 +37,7 @@
                         <img src="../design/switcher-1col.gif" alt="" /></a> <a href="javascript:void(0)" rel="2col" class="styleswitch ico-col2" title="Display two columns">
                             <img src="../design/switcher-2col.gif" alt="" /></a> </span>Project: <strong>Employee Attadence</strong>
                 </p>
-                <%--<p class="f-right">User: <strong><a href="#">Administrator</a></strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><a href="#" id="logout">Log out</a></strong></p>--%>
+                <p class="f-right">User: <strong><asp:Label runat="server" ID="lName"></asp:Label></strong></p>
             </div>
             <!--  /tray -->
             <hr class="noscreen" />
@@ -65,7 +65,7 @@
                     <h1>
                         <asp:Label runat="server" ID="lTitle"></asp:Label>
                     </h1>
-                    <asp:Label runat="server" ID="lMessage" CssClass="msg done" Text="HI" Style="display: block" Visible="false"></asp:Label>
+                    <asp:Label runat="server" ID="lMessage" CssClass="msg done" Text="HI" Style="display: block;margin-top:10px;" Visible="false"></asp:Label>
                     <asp:ContentPlaceHolder ID="Column1" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>

@@ -67,7 +67,7 @@
                     <h1>
                         <asp:Label runat="server" ID="lTitle"></asp:Label>
                     </h1>
-                    <asp:Label runat="server" ID="lMessage" CssClass="msg done" Text="HI" style="display:block" Visible="false"></asp:Label>
+                    <asp:Label runat="server" ID="lMessage" CssClass="msg done" Text="HI" style="display:block;margin-top:10px;" Visible="false"></asp:Label>
                     <asp:ContentPlaceHolder ID="Column1" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>

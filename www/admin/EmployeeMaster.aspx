@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Column1" runat="Server">
     <asp:HiddenField runat="server" ID="hfID" />
     <fieldset>
-        <legend>Legend</legend>
+        <legend>Employee</legend>
         <table class="nostyle">
             <tr>
                 <td width="20%">Name</td>
@@ -51,7 +51,7 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    <asp:CheckBox runat="server" ID="cbIsActive" Text="Active" />
+                    <asp:CheckBox runat="server" ID="cbIsActive" Text="" />&nbsp;&nbsp;Active
                 </td>
             </tr>
             <tr>
@@ -84,8 +84,8 @@
                     <%#((DataRowView)Container.DataItem)["IsActive"] %>
                 </td>
                 <td>
-                    <asp:Button runat="server" Text="Edit" ID="btEdit" CommandName="cE" CommandArgument='<%#((DataRowView)Container.DataItem)["EMPIDP"] %>' />
-                    <%--<asp:Button runat="server" Text="Delete" ID="btDelete" CommandName="cD" CommandArgument='<%#((DataRowView)Container.DataItem)["EMPIDP"] %>' OnClientClick="return confirm('Do You Really Want To Delete This Record?');" />--%>
+                    <asp:Button runat="server" Text="Edit" ID="btEdit" CommandName="cE" CssClass="input-submit" CommandArgument='<%#((DataRowView)Container.DataItem)["EMPIDP"] %>' />
+                    <asp:Button runat="server" Text="Delete" ID="btDelete" CommandName="cD" CssClass="input-submit" CommandArgument='<%#((DataRowView)Container.DataItem)["EMPIDP"] %>' OnClientClick="return confirm('Do You Really Want To Delete This Record?');" />
                 </td>
             </tr>
         </ItemTemplate>

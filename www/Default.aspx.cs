@@ -19,6 +19,7 @@ public partial class _Default : System.Web.UI.Page
         if (mRes.Outval > 0)
         {
             Session["UserIDF"] = mRes.Outval.ToString();
+            Session["UserName"] = mRes.Outmsg.ToString();
             Response.Redirect("staff/Dashboard.aspx");
         }
         else

@@ -15,6 +15,7 @@ public partial class admin_EmployeeMaster : System.Web.UI.Page
     {
         MasterPage mPage = this.Master;
         ((Label)mPage.FindControl("lTitle")).Text = this.Page.Title = "Employee Master";
+
         if (!IsPostBack)
         {
             BindDDL();
@@ -40,6 +41,9 @@ public partial class admin_EmployeeMaster : System.Web.UI.Page
         MasterPage mPage = this.Master;
         ((Label)mPage.FindControl("lMessage")).Visible = true;
         ((Label)mPage.FindControl("lMessage")).Text = mRes.Outmsg;
+
+        BindData();
+        ClearControls();
     }
 
     public void BindData()
@@ -77,6 +81,13 @@ public partial class admin_EmployeeMaster : System.Web.UI.Page
                 }
             }
         }
+    }
+
+    public void ClearControls()
+    {
+        hfID.Value = tbName.Text = tbEmailID.Text = tbMobileNo.Text = tbAddress.Text = string.Empty;
+        cbIsActive.Checked = false;
+        ddlDesignation.ClearSelection();
     }
 }
 

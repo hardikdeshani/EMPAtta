@@ -88,4 +88,16 @@ public class Tools
             HttpContext.Current.Cache.Remove(KeyPrefix + PAIR.Value.ToString());
         }
     }
+
+    /// <summary>
+    /// Get Proper Date Format
+    /// </summary>
+    /// <param name="Date"></param>
+    /// <returns></returns>
+    public static string GetDateFormatProper(string Date)
+    {
+        string[] SplitString = Date.Split('/');
+        string WholeString = SplitString[1] + "/" + SplitString[0] + "/" + SplitString[2];
+        return WholeString;
+    }
 }

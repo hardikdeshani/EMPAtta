@@ -17,6 +17,7 @@ public partial class staff_Profile : System.Web.UI.Page
         ((Label)mPage.FindControl("lTitle")).Text = this.Page.Title = "User Profile";
         if (!IsPostBack)
         {
+            BindDDL();
             BindData();
         }
     }
@@ -65,5 +66,14 @@ public partial class staff_Profile : System.Web.UI.Page
             ((Label)mPage.FindControl("lMessage")).Visible = true;
             ((Label)mPage.FindControl("lMessage")).Text = mRes.Outmsg;
         }
+    }
+
+    public void BindDDL()
+    {
+        ddlDesignation.DataSource = new EMPAttLogic.EMP.Designation().GetDesignation(0);
+        ddlDesignation.DataTextField = "DesignationName";
+        ddlDesignation.DataValueField = "DesignationIDP";
+        ddlDesignation.DataBind();
+        ddlDesignation.Items.Insert(0, new ListItem("-- Select Designation --", "-1"));
     }
 }
