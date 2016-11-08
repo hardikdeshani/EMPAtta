@@ -96,8 +96,17 @@ public class Tools
     /// <returns></returns>
     public static string GetDateFormatProper(string Date)
     {
-        string[] SplitString = Date.Split('/');
-        string WholeString = SplitString[1] + "/" + SplitString[0] + "/" + SplitString[2];
+        string WholeString = string.Empty;
+        if (Date.Contains("/"))
+        {
+            string[] SplitString = Date.Split('/');
+            WholeString = SplitString[1] + "/" + SplitString[0] + "/" + SplitString[2];
+        }
+        else
+        {
+            string[] SplitString = Date.Split('-');
+            WholeString = SplitString[2] + "-" + SplitString[1] + "-" + SplitString[0];
+        }
         return WholeString;
     }
 }

@@ -26,7 +26,7 @@ public partial class admin_AttadenceReport : System.Web.UI.Page
         Int64 mEMPIDF = 0;
         Int64.TryParse(ddlEmployee.SelectedValue, out mEMPIDF);
 
-        DataTable dt = new EMPAttLogic.EMP.Registration().Attadeance_Report(mEMPIDF);
+        DataTable dt = new EMPAttLogic.EMP.Registration().Attadeance_Report(mEMPIDF, (!string.IsNullOrEmpty(tbFromDate.Text) ? Tools.GetDateFormatProper(tbFromDate.Text) : string.Empty), (!string.IsNullOrEmpty(tbFromDate.Text) ? Tools.GetDateFormatProper(tbToDate.Text) : string.Empty));
         rData.DataSource = dt;
         rData.DataBind();
     }

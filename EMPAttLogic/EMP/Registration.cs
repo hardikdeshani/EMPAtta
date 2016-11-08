@@ -43,9 +43,9 @@ namespace EMPAttLogic.EMP
             return ExecuteProceduerWithMessage("Leave_Insert_Update", new object[,] { { "EMPIDF", EMPIDF }, { "Remarks", Remarks }, { "LeaveType", LeaveType }, { "FromDate", FromDate }, { "ToDate", ToDate } });
         }
 
-        public DataTable Attadeance_Report(Int64 EMPIDF)
+        public DataTable Attadeance_Report(Int64 EMPIDF, string FROMDATE, string TODATE)
         {
-            object[,] param = { { "EMPIDF", EMPIDF } };
+            object[,] param = { { "EMPIDF", EMPIDF }, { "FROMDATE", FROMDATE }, { "TODATE", TODATE } };
             return ExecuteProcedure("Attadeance_Report", param);
         }
 

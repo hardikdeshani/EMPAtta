@@ -2,6 +2,16 @@
 
 <%@ Import Namespace="System.Data" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#<%=tbFromDate.ClientID%>").datepicker({ dateFormat: 'dd-mm-yy' });
+            $("#<%=tbToDate.ClientID%>").datepicker({ dateFormat: 'dd-mm-yy' });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Column1" runat="Server">
     <fieldset>
@@ -10,7 +20,15 @@
             <tr>
                 <td>Name</td>
                 <td>
-                    <asp:DropDownList runat="server" ID="ddlEmployee" CssClass="input-submit"></asp:DropDownList>
+                    <asp:DropDownList runat="server" ID="ddlEmployee" CssClass="input-text"></asp:DropDownList>
+                </td>
+                <td>From Date</td>
+                <td>
+                    <asp:TextBox runat="server" ID="tbFromDate" CssClass="input-text"></asp:TextBox>
+                </td>
+                <td>To Date</td>
+                <td>
+                    <asp:TextBox runat="server" ID="tbToDate" CssClass="input-text"></asp:TextBox>
                 </td>
                 <td>
                     <asp:Button runat="server" ID="btSave" CssClass="input-submit" Text="Search" OnClick="btSave_Click" />
