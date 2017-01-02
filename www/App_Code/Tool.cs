@@ -109,4 +109,19 @@ public class Tools
         }
         return WholeString;
     }
+
+    /// <summary>
+    /// GET IP ADDRESS NOT WORK IN LOCAL WORK ONLY IN LIVE
+    /// </summary>
+    /// <returns></returns>
+    public static string IPAddress()
+    {
+        string ConIP = System.Web.HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+        if (ConIP == null)
+        {
+            ConIP = System.Web.HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+        }
+        if (ConIP == null || ConIP == "127.0.0.1") { ConIP = ""; }
+        return ConIP;
+    }
 }

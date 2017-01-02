@@ -1,19 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using EMPAttLogic;
 
 public partial class staff_LeaveMaster : System.Web.UI.Page
 {
-    EMPAttLogic.EMP.Registration obj;
+    Registration obj;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        MasterPage mPage = this.Master;
-        ((Label)mPage.FindControl("lTitle")).Text = this.Page.Title = "Leave Master";
+        if (!string.IsNullOrEmpty(new SessionClass().GetValue(SessionClass.SessionKey.UserID)))
+        {
+            if (!IsPostBack)
+            {
+                BindData();
+            }
+        }
+        else 
+        { 
+            Response.Redirect("Default.aspx"); 
+        }
+    }
+
+    void BindData()
+    {
+        Int64 mEMPIDF = 0;
+        Int64.TryParse(new SessionClass().GetValue(SessionClass.SessionKey.UserID), out mEMPIDF);
+
+        rData.DataSource = new Registration().Leave_Report(mEMPIDF);
+        rData.DataBind();
     }
 
     protected void ddlLeaveType_SelectedIndexChanged(object sender, EventArgs e)
@@ -32,7 +47,7 @@ public partial class staff_LeaveMaster : System.Web.UI.Page
     protected void btSave_Click(object sender, EventArgs e)
     {
         Int64 mUserIDF = 0;
-        Int64.TryParse(Session["UserIDF"].ToString(), out mUserIDF);
+        Int64.TryParse(new SessionClass().GetValue(SessionClass.SessionKey.UserID), out mUserIDF);
 
         Int32 mLeaveType = 0;
         Int32.TryParse(ddlLeaveType.SelectedValue, out mLeaveType);
@@ -46,12 +61,9 @@ public partial class staff_LeaveMaster : System.Web.UI.Page
             dtToDate = Convert.ToDateTime(Tools.GetDateFormatProper(tbToDate.Text));
         }
 
-        obj = new EMPAttLogic.EMP.Registration();
+        obj = new Registration();
         MEMBERS.SQLReturnMessageNValue mRes = obj.Leave_Insert_Update(mUserIDF, tbRemarks.Text, mLeaveType, dtFromDate.ToString(), (mLeaveType == 1 ? dtFromDate.ToString() : dtToDate.ToString()));
-
-        MasterPage mPage = this.Master;
-        ((Label)mPage.FindControl("lMessage")).Visible = true;
-        ((Label)mPage.FindControl("lMessage")).Text = mRes.Outmsg;
+        ScriptManager.RegisterStartupScript(this, Page.GetType(), "Notification", "<script>$(document).ready(function () { sweetAlert('" + mRes.Outmsg + "'); });</script>", false);
         ClearControls();
     }
 

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using EMPAttLogic;
@@ -9,31 +6,32 @@ using System.Data;
 
 public partial class admin_DesignationMaster : System.Web.UI.Page
 {
-    EMPAttLogic.EMP.Designation obj;
+    Designation obj;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        MasterPage mPage = this.Master;
-        ((Label)mPage.FindControl("lTitle")).Text = this.Page.Title = "Designation Master";
-
-        if (!IsPostBack)
+        if (!string.IsNullOrEmpty(new SessionClass().GetValue(SessionClass.SessionKey.UserID)))
         {
-            BindData();
+            if (!IsPostBack)
+            {
+                BindData();
+            }
+        }
+        else
+        {
+            Response.Redirect("Default.aspx");
         }
     }
 
     protected void btSave_Click(object sender, EventArgs e)
     {
-        obj = new EMPAttLogic.EMP.Designation();
+        obj = new Designation();
         obj.DesignationName = tbDesignationName.Text;
         obj.IsActive = cbIsActive.Checked;
         obj.DesignationIDP = (!string.IsNullOrEmpty(hfID.Value) ? Int32.Parse(hfID.Value) : 0);
 
-        MEMBERS.SQLReturnMessageNValue mRes = obj.AddUpdate();
-        MasterPage mPage = this.Master;
-        ((Label)mPage.FindControl("lMessage")).Visible = true;
-        ((Label)mPage.FindControl("lMessage")).Text = mRes.Outmsg;
-
+        MEMBERS.SQLReturnMessageNValue mRes = obj.Designation_Insert_update();
+        ScriptManager.RegisterStartupScript(this, Page.GetType(), "Notification", "<script>$(document).ready(function () { sweetAlert('" + mRes.Outmsg + "'); });</script>", false);
         BindData();
         ClearControls();
     }
@@ -44,7 +42,7 @@ public partial class admin_DesignationMaster : System.Web.UI.Page
         {
             if (e.CommandName == "cE")
             {
-                DataTable dt = new EMPAttLogic.EMP.Designation().GetDesignation(Int32.Parse(e.CommandArgument.ToString()));
+                DataTable dt = new Designation().GetDesignation(Int32.Parse(e.CommandArgument.ToString()));
                 if (dt.Rows.Count > 0)
                 {
                     DataRow dr = dt.Rows[0];
@@ -58,7 +56,7 @@ public partial class admin_DesignationMaster : System.Web.UI.Page
 
     public void BindData()
     {
-        rData.DataSource = new EMPAttLogic.EMP.Designation().GetDesignation(0);
+        rData.DataSource = new Designation().GetDesignation(0);
         rData.DataBind();
     }
 

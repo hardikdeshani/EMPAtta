@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 
-namespace EMPAttLogic.EMP
+namespace EMPAttLogic
 {
     public class Designation : SqlHelper
     {
@@ -12,7 +9,7 @@ namespace EMPAttLogic.EMP
         public string DesignationName { get; set; }
         public bool IsActive { get; set; }
 
-        public MEMBERS.SQLReturnMessageNValue AddUpdate()
+        public MEMBERS.SQLReturnMessageNValue Designation_Insert_update()
         {
             return ExecuteProceduerWithMessage("Designation_Insert_update", new object[,] { { "DesignationIDP", this.DesignationIDP }, { "DesignationName", this.DesignationName }, { "IsActive", this.IsActive } });
         }

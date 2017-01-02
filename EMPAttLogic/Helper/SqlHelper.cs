@@ -194,6 +194,21 @@ public class SqlHelper
         }
     }
 
+    protected DataSet ExecuteProcedureDS(string ProcedureName, object[,] param)
+    {
+        try
+        {
+            SqlDataAdapter da = new SqlDataAdapter(ExecuteProceduer(ProcedureName, param, false));
+            DataSet dt = new DataSet();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
     protected DataTable ExecuteProcedure(string ProcedureName, SqlParameter[] param)
     {
         try

@@ -9,22 +9,23 @@ public partial class admin_Admin : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if (!string.IsNullOrEmpty(new SessionClass().GetValue(SessionClass.SessionKey.UserID)))
         {
-            if (Session["AdminName"] == null)
+            if (!IsPostBack)
             {
-                Response.Redirect("/admin/Default.aspx");
-                return;
+                lName.InnerText = new SessionClass().GetValue(SessionClass.SessionKey.UserName);
             }
-            lName.Text = Session["AdminName"].ToString();
+        }
+        else
+        {
+            Response.Redirect("Default.aspx");
         }
     }
 
     protected void lLogout_Click(object sender, EventArgs e)
     {
-        Session["AdminName"] = null;
-        Session["AdminID"] = null;
-        Response.Redirect("/admin/Default.aspx");
+        new SessionClass().ClearCache();
+        Response.Redirect("Default.aspx");
         return;
     }
 }

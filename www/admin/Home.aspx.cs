@@ -9,7 +9,15 @@ public partial class admin_Home : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        MasterPage mPage = this.Master;
-        ((Label)mPage.FindControl("lTitle")).Text = this.Page.Title = "Home";
+        if (!string.IsNullOrEmpty(new SessionClass().GetValue(SessionClass.SessionKey.UserID)))
+        {
+            if (!IsPostBack)
+            {
+            }
+        }
+        else
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
 }

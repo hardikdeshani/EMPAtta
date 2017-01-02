@@ -1,23 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using EMPAttLogic;
-using System.Data;
+using System.Web.UI.HtmlControls;
 
 public partial class admin_AttadenceReport : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        MasterPage mPage = this.Master;
-        ((Label)mPage.FindControl("lTitle")).Text = this.Page.Title = "Attadence Report";
-
-        if (!IsPostBack)
+        if (!string.IsNullOrEmpty(new SessionClass().GetValue(SessionClass.SessionKey.UserID)))
         {
-            BindDDL();
-            BindData();
+            if (!IsPostBack)
+            {
+                BindDDL();
+                BindData();
+            }
+        }
+        else
+        {
+            Response.Redirect("Default.aspx");
         }
     }
 
@@ -25,9 +26,7 @@ public partial class admin_AttadenceReport : System.Web.UI.Page
     {
         Int64 mEMPIDF = 0;
         Int64.TryParse(ddlEmployee.SelectedValue, out mEMPIDF);
-
-        DataTable dt = new EMPAttLogic.EMP.Registration().Attadeance_Report(mEMPIDF, (!string.IsNullOrEmpty(tbFromDate.Text) ? Tools.GetDateFormatProper(tbFromDate.Text) : string.Empty), (!string.IsNullOrEmpty(tbFromDate.Text) ? Tools.GetDateFormatProper(tbToDate.Text) : string.Empty));
-        rData.DataSource = dt;
+        rData.DataSource = new Registration().Attadeance_Report(mEMPIDF, (!string.IsNullOrEmpty(tbFromDate.Text) ? Tools.GetDateFormatProper(tbFromDate.Text) : string.Empty), (!string.IsNullOrEmpty(tbFromDate.Text) ? Tools.GetDateFormatProper(tbToDate.Text) : string.Empty), int.Parse(ddlEntryType.SelectedValue));
         rData.DataBind();
     }
 
@@ -38,10 +37,24 @@ public partial class admin_AttadenceReport : System.Web.UI.Page
 
     public void BindDDL()
     {
-        ddlEmployee.DataSource = new EMPAttLogic.EMP.Registration().GetEmployee(0);
+        ddlEmployee.DataSource = new Registration().GetEmployee(0);
         ddlEmployee.DataTextField = "Name";
         ddlEmployee.DataValueField = "EMPIDP";
         ddlEmployee.DataBind();
         ddlEmployee.Items.Insert(0, new ListItem("-- Select Employee --", "0"));
+    }
+
+    protected void rData_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    {
+        if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+        {
+            HtmlTableRow tTR = (HtmlTableRow)e.Item.FindControl("tTR");
+            string IsLate = DataBinder.Eval(e.Item.DataItem, "IsLate").ToString();
+            if (IsLate == "1")
+            {
+                tTR.Style.Add("background", "red");
+                tTR.Style.Add("color", "white"); tTR.Style.Add("font-weight", "bold");
+            }
+        }
     }
 }

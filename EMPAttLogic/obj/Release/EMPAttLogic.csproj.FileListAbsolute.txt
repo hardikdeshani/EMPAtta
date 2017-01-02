@@ -1,0 +1,15 @@
+F:\WebSmithAttandenceSystem\EMPAttandence\EMPAtta\EMPAttLogic\bin\Release\EMPAttLogic.dll
+F:\WebSmithAttandenceSystem\EMPAttandence\EMPAtta\EMPAttLogic\bin\Release\EMPAttLogic.pdb
+F:\WebSmithAttandenceSystem\EMPAttandence\EMPAtta\EMPAttLogic\obj\Release\EMPAttLogic.dll
+F:\WebSmithAttandenceSystem\EMPAttandence\EMPAtta\EMPAttLogic\obj\Release\EMPAttLogic.pdb
+F:\WebSmithAttandenceSystem\EMPAttandence\EMPAtta\EMPAttLogic\obj\Release\EMPAttLogic.csprojResolveAssemblyReference.cache
+D:\EMPAttGit\EMPAttandence\EMPAtta\EMPAttLogic\bin\Release\EMPAttLogic.dll
+D:\EMPAttGit\EMPAttandence\EMPAtta\EMPAttLogic\bin\Release\EMPAttLogic.pdb
+D:\EMPAttGit\EMPAttandence\EMPAtta\EMPAttLogic\obj\Release\EMPAttLogic.csprojResolveAssemblyReference.cache
+D:\EMPAttGit\EMPAttandence\EMPAtta\EMPAttLogic\obj\Release\EMPAttLogic.dll
+D:\EMPAttGit\EMPAttandence\EMPAtta\EMPAttLogic\obj\Release\EMPAttLogic.pdb
+D:\EMPAttGit\EMPAtta\EMPAttLogic\bin\Release\EMPAttLogic.dll
+D:\EMPAttGit\EMPAtta\EMPAttLogic\bin\Release\EMPAttLogic.pdb
+D:\EMPAttGit\EMPAtta\EMPAttLogic\obj\Release\EMPAttLogic.csprojResolveAssemblyReference.cache
+D:\EMPAttGit\EMPAtta\EMPAttLogic\obj\Release\EMPAttLogic.dll
+D:\EMPAttGit\EMPAtta\EMPAttLogic\obj\Release\EMPAttLogic.pdb

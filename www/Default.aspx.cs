@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using EMPAttLogic;
 
 public partial class _Default : System.Web.UI.Page
@@ -15,12 +10,12 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btLogin_Click(object sender, EventArgs e)
     {
-        MEMBERS.SQLReturnMessageNValue mRes = new EMPAttLogic.EMP.Registration().EMP_AUTH(tbUserName.Text, tbPassword.Text);
+        MEMBERS.SQLReturnMessageNValue mRes = new Registration().Customer_AUTH(tbUserName.Text, tbPassword.Text);
         if (mRes.Outval > 0)
         {
-            Session["UserIDF"] = mRes.Outval.ToString();
-            Session["UserName"] = mRes.Outmsg.ToString();
-            Response.Redirect("staff/Dashboard.aspx");
+            new SessionClass().SetValue(SessionClass.SessionKey.UserID, mRes.Outval.ToString());
+            new SessionClass().SetValue(SessionClass.SessionKey.UserName, mRes.Outmsg.ToString());
+            Response.Redirect("Customer/Home.aspx");
         }
         else
         {

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using EMPAttLogic;
@@ -9,52 +6,52 @@ using System.Data;
 
 public partial class admin_EmployeeMaster : System.Web.UI.Page
 {
-    EMPAttLogic.EMP.Registration obj;
+    Registration obj;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        MasterPage mPage = this.Master;
-        ((Label)mPage.FindControl("lTitle")).Text = this.Page.Title = "Employee Master";
-
-        if (!IsPostBack)
+        if (!string.IsNullOrEmpty(new SessionClass().GetValue(SessionClass.SessionKey.UserID)))
         {
-            BindDDL();
-            BindData();
+            if (!IsPostBack)
+            {
+                BindDDL();
+                BindData();
+            }
+        }
+        else
+        {
+            Response.Redirect("Default.aspx");
         }
     }
 
     protected void btSave_Click(object sender, EventArgs e)
     {
-        obj = new EMPAttLogic.EMP.Registration();
+        obj = new Registration();
         obj.Name = tbName.Text;
         obj.Mobile = tbMobileNo.Text;
         obj.EmailID = tbEmailID.Text;
-        obj.Password = new EMPAttLogic.Common.General().GetPassword(tbMobileNo.Text);
+        obj.Password = new General().GetPassword(tbMobileNo.Text);
         obj.Address = tbAddress.Text;
         Int32 mDesignationIDF = 0;
         Int32.TryParse(ddlDesignation.SelectedValue, out mDesignationIDF);
         obj.DesignationIDF = mDesignationIDF;
         obj.IsActive = cbIsActive.Checked;
         obj.EMPIDP = (!string.IsNullOrEmpty(hfID.Value) ? Int64.Parse(hfID.Value) : 0);
-        MEMBERS.SQLReturnMessageNValue mRes = obj.AddUpdate();
-
-        MasterPage mPage = this.Master;
-        ((Label)mPage.FindControl("lMessage")).Visible = true;
-        ((Label)mPage.FindControl("lMessage")).Text = mRes.Outmsg;
-
+        MEMBERS.SQLReturnMessageNValue mRes = obj.Employee_Insert_Update();
+        ScriptManager.RegisterStartupScript(this, Page.GetType(), "Notification", "<script>$(document).ready(function () { sweetAlert('" + mRes.Outmsg + "'); });</script>", false);
         BindData();
         ClearControls();
     }
 
     public void BindData()
     {
-        rData.DataSource = new EMPAttLogic.EMP.Registration().GetEmployee(0);
+        rData.DataSource = new Registration().GetEmployee(0);
         rData.DataBind();
     }
 
     public void BindDDL()
     {
-        ddlDesignation.DataSource = new EMPAttLogic.EMP.Designation().GetDesignation(0);
+        ddlDesignation.DataSource = new Designation().GetDesignation(0);
         ddlDesignation.DataTextField = "DesignationName";
         ddlDesignation.DataValueField = "DesignationIDP";
         ddlDesignation.DataBind();
@@ -67,7 +64,7 @@ public partial class admin_EmployeeMaster : System.Web.UI.Page
         {
             if (e.CommandName == "cE")
             {
-                DataTable dt = new EMPAttLogic.EMP.Registration().GetEmployee(Int64.Parse(e.CommandArgument.ToString()));
+                DataTable dt = new Registration().GetEmployee(Int64.Parse(e.CommandArgument.ToString()));
                 if (dt.Rows.Count > 0)
                 {
                     DataRow dr = dt.Rows[0];
